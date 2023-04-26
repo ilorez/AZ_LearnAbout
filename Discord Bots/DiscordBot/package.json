@@ -1,0 +1,12 @@
+{
+  "name": "greeter-bot",
+  "version": "1.0.0",
+  "description": "bot test description",
+  "main": "bot.js",
+  "author": "myname",
+  "dependencies": {
+    "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
+    "save": "^2.9.0",
+    "winston": "^3.8.2"
+  }
+}

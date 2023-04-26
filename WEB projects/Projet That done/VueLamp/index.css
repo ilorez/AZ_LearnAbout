@@ -1,0 +1,384 @@
+/* general style */
+html {
+    box-sizing: border-box;
+    max-width: 1400;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Almarai', 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    background-color: rgb(30, 30, 31);
+    color: white;
+    
+}
+/* nav style  */
+nav{
+    position: fixed;
+    width: 100vw;
+    z-index: 101;
+}
+nav , ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-between;
+    margin: 5px 3vw;
+    
+}
+nav li:hover{
+    scale: 1.05;
+}
+.left-list li{
+    margin-right: 10px;
+}
+.right-list li{
+    margin-right: 3vw;
+}
+nav a {
+    text-decoration: none;
+    color: white;
+}
+nav a:hover {
+    text-decoration: none;
+    color: white;
+    
+}
+#menu-id{
+    height: 12px;
+}
+#logo-id{
+    height: 25px;
+}
+/* toggle switch style  */
+#toggle-li{
+    display:flex;
+    align-items: center;
+}
+.myInput {
+    cursor: pointer;
+    margin-left: 10px;
+    position: relative;
+    width: 40px;
+    height: 20px;
+    border-radius: 25px;
+    outline: none;
+    background-color: #ccc;
+    -webkit-appearance: none;
+    
+}
+.myInput::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    height: 1rem;
+    width: 1rem;
+    background-color: white;
+    transition: left .3s;
+}
+
+.myInput:checked {
+    background-color: #108b5c;
+}
+
+.myInput:checked::after {
+    left: 70%;
+}
+
+/* main sytle  */
+main{
+    display: flex;
+    justify-content: flex-end;
+}
+/* syle of the lamp  */
+#lamp-light-div{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+    height: 100vh;
+    right: 20vw;
+    justify-content: center;
+
+   
+}
+#lamp-img{
+    position:relative;
+    width: 25vw;
+    height: 45vh;
+    background-image: url(./images/lamp.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+#light-img{
+    position:relative;
+    width: 40vw;
+    height: 60vh;
+    background-image: url(./images/light.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: -1vh;
+    left:-15vw ;
+    z-index: -1;
+}
+
+/* all main syle without the lamp and his light  */
+
+#content-of-page{
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+    width: 40vw;
+    margin-right: 10vw;
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+    z-index: 100;
+}
+#content-of-page h1{
+    font-size: 4rem;
+    line-height: 5rem;
+}
+.myButton{
+    
+    background-color: #108b5c;
+    border: none;
+    border-radius: 50px;
+    width: 200px;
+    color: white;
+    height: 2.2rem;
+}
+.myButton:hover{
+    cursor: pointer;
+    background-color: #1bb97d;
+    color: rgb(43, 43, 43);
+    scale: 1.05;
+    transition: .2s;
+}
+#progress-div{
+    width: 280px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-self:flex-end;
+    flex-grow: 1;
+    align-items:center;
+}
+
+#progress-ligne{
+    margin: 0 10px;
+    height: 0.25rem;
+    flex-grow: 1;
+    background: linear-gradient(to right, #108b5c 80%, #fff 20%);
+}
+
+@media (max-width:1200px){
+    #content-of-page{
+        height: 85vh;
+        width: 45vw;
+        margin-right: 10vw;
+        margin-top: 10vh;
+        margin-bottom: 5vh;
+    }
+    #lamp-light-div{
+        width: 60vw;
+        height: 100vh;
+        right: 20vw;
+        justify-content: center;
+    
+       
+    }
+    #lamp-img{
+        position:relative;
+        width: 25vw;
+        height: 45vh;
+        /* top: -90px; */
+    }
+    #light-img{
+        position:relative;
+        width: 40vw;
+        height: 60vh;
+        background-size: contain;
+        background-repeat: no-repeat;
+        top: -1vh;
+        left:-14vw ;
+    }
+
+
+}
+@media (max-width:1106px){
+    
+    #lamp-light-div{
+        width: 50vw;
+        height: 100vh;
+        right: 35vw;
+    
+       
+    }
+    #lamp-img{
+        width: 25vw;
+        height: 45vh;
+    }
+    #light-img{
+        position:relative;
+        width: 45vw;
+        height: 60vh;
+        top: -2vh;
+        left:-16vw ;
+    }
+}
+@media (max-width:992px){
+    #content-of-page{
+        height: 85vh;
+        width: 55vw;
+        margin-right: 10vw;
+        margin-top: 10vh;
+        margin-bottom: 5vh;
+    }
+   
+    #lamp-light-div{
+        width: 40vw;
+        height: 100vh;
+        right: 50vw;
+    
+       
+    }
+    #lamp-img{
+        width: 25vw;
+        height: 45vh;
+    }
+    #light-img{
+        position:relative;
+        width: 50vw;
+        height: 60vh;
+        top: -1vh;
+        left:-18vw ;
+    }
+}
+@media (max-width:898px){
+    
+    #lamp-light-div{
+        width: 50vw;
+        height: 100vh;
+        right: 35vw;
+    
+       
+    }
+    #lamp-img{
+        width: 25vw;
+        height: 45vh;
+    }
+    #light-img{
+        position:relative;
+        width: 45vw;
+        height: 80vh;
+        top: -1vh;
+        left:-16vw ;
+    }
+}
+@media (max-width:824px){
+    
+    #lamp-light-div{
+        width: 50vw;
+        height: 100vh;
+        right: 35vw;
+    
+       
+    }
+    #lamp-img{
+        width: 25vw;
+        height: 45vh;
+    }
+    #light-img{
+        position:relative;
+        width: 49vw;
+        height: 90vh;
+        top: -1vh;
+        left:-18vw ;
+    }
+}
+@media (max-width:768px){
+    #content-of-page{
+        height: 85vh;
+        width: 50vw;
+        margin-right: 7vw;
+        margin-top: 10vh;
+        margin-bottom: 5vh;
+    }
+    #progress-div{
+        width: 220px;
+        right: 10vw;
+        bottom: 30vh;
+    }
+    #lamp-light-div{
+        width: 50vw;
+        height: 100vh;
+        right: 35vw;
+    
+       
+    }
+    #lamp-img{
+        width: 20vw;
+        height: 40vh;
+    }
+    #light-img{
+        position:relative;
+        width: 45vw;
+        height: 100vh;
+        top: -1vh;
+        left:-16vw ;
+    }
+}
+@media (max-width:660px){
+    #content-of-page{
+        height: 85vh;
+        width: 70vw;
+        margin-right: 10vw;
+        margin-top: 10vh;
+        margin-bottom: 5vh;
+    }
+    
+    #toggle-li{
+        display: none;
+    }
+    #lamp-light-div{
+        display: none;
+    }
+    
+}
+@media (max-width:576px){
+    #content-of-page{
+        height: 85vh;
+        width: 75vw;
+        margin-right: 10vw;
+        margin-top: 10vh;
+        margin-bottom: 5vh;
+    }
+}
+@media (max-width:490px){
+    #content-of-page{
+        height: 85vh;
+        width: 80vw;
+        margin-right: 10vw;
+        margin-top: 10vh;
+        margin-bottom: 5vh;
+    }
+    nav{
+        width: 50vw;
+    }
+}
+.hidden{
+    transition: .4s;
+    opacity: 0;
+    /* visibility: hidden; */
+}

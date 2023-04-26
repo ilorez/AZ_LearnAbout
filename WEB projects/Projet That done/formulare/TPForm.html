@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP Formulare</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+
+<body>
+    
+    <h1>Formulare</h1>
+    <form action="post">
+        <fieldset>
+            <legend>Formulare I</legend>
+            <p>
+                <label for="nom">Nom:</label><input type="text" id="nom" size="30" placeholder="you name" autofocus />
+            </p>
+            <p>
+                <label for="mdp">Mot de passe:</label>
+                <input type="password" size="30" id="mdp" />
+            </p>
+            <p>
+                <label for="mail">Email:</label>
+                <input type="email" size="30" id="mail" />
+            </p>
+            <p>
+                <label for="numero">Age:</label>
+                <input type="number" min="10" max="90" step="1" />
+            </p>
+            <p>
+                <label for="dat">Date de naissance:</label>
+                <input type="date" />
+            </p>
+            <p>
+                <label for="time">Heure de reunion:</label>
+                <input type="time"/>
+            </p>
+            <p>
+                <label for="datim">Date et heure de reunion:</label>
+                <input type="datetime-local" />
+            </p>
+            <p>
+                <label for="fil">Uploader fichier:</label>
+                <input type="file" />
+            </p>
+            <p>
+                <label for="rang">Choisir votre niveau de FR:</label>
+                <input type="range" min="0" max="100"/>
+            </p>
+            <p>
+                <label for="ville">Ville:</label>
+                <input type="text" list="V" id="ville" />
+                <datalist id="V">
+                    <option>Marrakech</option>
+                    <option>Tanger</option>
+                    <option>Agadir</option>
+                </datalist>
+            </p>
+
+        </fieldset>
+        <fieldset>
+            <legend>Formulare II</legend>
+            <p>
+                <label for="h">Homme</label>
+                <input type="radio" name="s" checked/>
+                <label for="f">femme</label>
+                <input type="radio" name="s"/>
+            </p>
+
+            <p>
+                <label for="v">Voyage</label><input type="checkbox"/>
+                <label for="v">Lecture</label><input type="checkbox"/>
+                <label for="v">Sport</label><input type="checkbox"/>
+            </p>
+            <p>
+                <label for="pays">Pays:</label>
+                <select id="pays">
+                    <optgroup label="AFRIQUE">
+                        <option>Maroc</option>
+                        <option>egypt</option>
+                        <option>TUnisie</option>
+                    </optgroup>
+                    <optgroup label="AFRIQUE">
+                        <option>Framce</option>
+                        <option>Italie</option>
+                        <option>Germania</option>
+                    </optgroup>
+                </select>
+            </p>
+            <p>
+                <label for="ville">Villes:</label>
+                <input type="text" id="bille" list="mavilles"/>
+                <datalist id="mavilles">
+                    <option>Framce</option>
+                    <option>Italie</option>
+                    <option>Germania</option>
+                    <option>Maroc</option>
+                    <option>egypt</option>
+                    <option>TUnisie</option>
+                </datalist>
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend>Formulare III</legend>
+            <p>
+                <label for="couleur">Coisir couleur:</label>
+                <input type="color" id="couleur"/>
+            </p>
+            <p>
+                <label for="multi">Vos commentaires:</label>
+                <textarea id="multi" cols="25" rows="3"></textarea>
+            </p>
+        </fieldset>
+        <p>
+            <input type="submit" value="Valider"/>
+            <input type="reset" value="reset"/>
+        </p>
+    </form>
+
+</body>
+
+</html>
