@@ -15,6 +15,8 @@ function Home() {
       <p style={{color:"red",backgroundColor:'yellow'}}>Hello world main</p>
       {showFooter && <Footer text="I'm Footer"/>}
       <Link href="/about">About</Link>
+      <br />
+      <Link href="/useState">useState</Link>
     </main>
   )
 }
