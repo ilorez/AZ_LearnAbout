@@ -16,7 +16,9 @@ function Home() {
       {showFooter && <Footer text="I'm Footer"/>}
       <Link href="/about">About</Link>
       <br />
-      <Link href="/useStateAndEffect">useState</Link>
+      <Link href="/useStateAndEffect">useStateAndEffect</Link>
+      <br />
+      <Link href="/useDev">useDev</Link>
     </main>
   )
 }
