@@ -3,7 +3,7 @@ type footerProps = {
     name?: string
 }
 function Footer({text,name}:footerProps){
-    console.log('render');
+    // console.log('render');
     return (
         <footer>
             {text}
