@@ -1,0 +1,6 @@
+# igbore all test files
+/*.test.*
+/test.*
+/*.mp4.*
+/mp4.*
+*.mp4
