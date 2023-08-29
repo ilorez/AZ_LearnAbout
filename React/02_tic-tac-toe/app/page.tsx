@@ -2,25 +2,27 @@
 import Image from 'next/image'
 import styles from './page.module.css'
 import { useEffect, useRef, useState } from 'react';
-// type btnProp={
-//   value : string
-// }
-let isOTurn = false;
-let isLastTurnWasO = false; 
-let isOver = false;
+
+
 function GameSection(){
   // const selfRef = useRef<Array<HTMLButtonElement | null>>([])
   const [btnsValue,setBtnsValue] = useState<Array<Array<string|number>>>([["","",""],["","",""],["","",""]]);
+  const [message,setMessage] = useState<string>("it's X turn");
+  const [isOTurn,setIsOTurn] = useState<boolean>(false);
+  const [isLastTurnWasO,setIsLastTurnWasO] = useState<boolean>(false);
+  const [isOver,setIsOver] = useState<boolean>(false);
+
   
   
   const clickedOn = (index:Array<number>) =>{
 
     if (btnsValue[index[0]][index[1]] != "" || isOver) return 
     let btnsCopy = [...btnsValue]
-    isOTurn ? btnsCopy[index[0]][index[1]]="O":btnsCopy[index[0]][index[1]]="X"
+    btnsCopy[index[0]][index[1]]= isOTurn ? "O":"X"
     setBtnsValue(btnsCopy)
-    isOTurn = !isOTurn
+    setIsOTurn(!isOTurn)
     console.log(isOTurn)
+    setMessage(isOTurn ? "it's O turn ":"it's X turn ")
   }
     const possibleWins = [
       [[0,0],[0,1],[0,2]],[[1,0],[1,1],[1,2]],[[2,0],[2,1],[2,2]],[[0,0],[1,0],[2,0]],[[0,1],[1,1],[2,1]],[[0,2],[1,2],[2,2]],[[0,2],[1,1],[2,0]],[[0,0],[1,1],[2,2]]
@@ -34,7 +36,9 @@ function GameSection(){
     possibleWins.forEach((win,index)=>{
       if(btnsValue[win[0][0]][win[0][1]] && btnsValue[win[0][0]][win[0][1]]===btnsValue[win[1][0]][win[1][1]] && btnsValue[win[1][0]][win[1][1]]===btnsValue[win[2][0]][win[2][1]]){
         console.log(`${btnsValue[win[1][0]][win[1][1]]} wins`);
-        isOver = true;
+        setMessage(`${btnsValue[win[1][0]][win[1][1]]} has won`)
+        setIsOver(true);
+        
         possibleWinsIds[index].forEach(id=>{
           let btn = document.querySelector(`#btn${id}`);
           if (btn){
@@ -62,8 +66,9 @@ function GameSection(){
     checkWin();
     if(!isOver){
       if(checkDraw()){
-        isOver = true
+        setIsOver(true);
         console.log('draw')
+        setMessage("Draw")
         const allBtns = document.querySelectorAll("[id^='btn']");
         allBtns.forEach(btn=>{
       btn.classList.add(styles.bgYellow)
@@ -74,9 +79,11 @@ function GameSection(){
 
   const restartGame = () =>{
     setBtnsValue([["","",""],["","",""],["","",""]])
-    isOver = false;
-    isOTurn  = !isLastTurnWasO
-    isLastTurnWasO = !isLastTurnWasO
+    setIsOver(false);
+    setIsOTurn(!isLastTurnWasO)
+    setIsLastTurnWasO(!isLastTurnWasO)
+    setMessage(isOTurn ? "it's O turn ":"it's X turn ")
+    console.log(message)
     const btnsGreen = document.querySelectorAll(`.${styles.bgGreen},.${styles.bgYellow}`);
     btnsGreen.forEach(btn=>{
       btn.classList.remove(styles.bgGreen,styles.bgYellow)
@@ -85,11 +92,11 @@ function GameSection(){
   }
 
   return (
-    <section>
-      <div></div>
+    <section className={styles.container}>
+      <div className={styles.message}>{message}</div>
       <div className={styles.btnsSection}>
         {btnsValue.map((row, rowIndex) => (
-          <div >
+          <div className={styles.row} >
             {row.map((col, colIndex) => (
               <button
                 
@@ -102,8 +109,8 @@ function GameSection(){
           </div>
         ))}
       </div>
-      <div>
-        <button onClick={restartGame}>Restart</button>
+      <div  className={styles.restartBtn}>
+        <button  onClick={restartGame}>Restart</button>
       </div>
     </section>
   );
@@ -114,8 +121,8 @@ function GameSection(){
 export default function Home() {
   
   return (
-    <>  
+    <main className={styles.main}>  
       <GameSection />  
-    </>
+    </main>
   )
   }
