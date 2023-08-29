@@ -19,6 +19,8 @@ function Home() {
       <Link href="/useStateAndEffect">useStateAndEffect</Link>
       <br />
       <Link href="/useDev">useDev</Link>
+      <br />
+      <Link href="/useMemo">useMemo</Link>
     </main>
   )
 }
