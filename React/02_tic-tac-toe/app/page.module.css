@@ -1,0 +1,19 @@
+.btnsSection div{
+  height: fit-content;
+}
+.btnsSection button{
+  width: 2rem;
+  height: 2rem;
+  background-color: black;
+  color: aliceblue;
+  border: 1px solid red;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: bottom;
+}
+.bgGreen{
+  background-color: rgb(74, 105, 26) !important;
+}
+.bgYellow{
+  background-color: rgb(198, 216, 0) !important;
+}
